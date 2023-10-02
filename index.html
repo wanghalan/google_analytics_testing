@@ -4,7 +4,7 @@
     <title>Google Test Site</title>
 </head>
 <body>
-    <h1>Welcome to the test site</h1>
+    <h1 id="open">Welcome to the test site</h1>
     <p>This is the default landing page for the test site.</p>
 
 
@@ -18,7 +18,9 @@
             //     window.history.pushState('Test', 'Title', '/test_'+getRandomInt(10));
             // }
             function changeTitle(){
-                document.title = "Title " + getRandomInt(10);
+                const newTitle = "Title "+ getRandomInt(10);
+                document.title =  newTitle;
+                document.getElementById("open").textContent ="Welcome to " + newTitle;
             }
 
             // Call the function to change the URL every 10 seconds
