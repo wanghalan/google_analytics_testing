@@ -21,6 +21,7 @@
                 const newTitle = "Title "+ getRandomInt(10);
                 document.title =  newTitle;
                 document.getElementById("open").textContent ="Welcome to " + newTitle;
+                window.history.pushState(newTitle, newTitle, newTitle); // You might need to modify this for this to be tracked
             }
 
             // Call the function to change the URL every 10 seconds
