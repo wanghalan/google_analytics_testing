@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Test Site</title>
+</head>
+<body>
+    <h1 id="open">Welcome to the download site!</h1>
+    <label for="pbar">Preparing {variable}:</label>
+    <progress id="pbar" value=0 max="100"></progress>
+
+
+    <!-- JavaScript to alternate the URL every 10 seconds -->
+    <script>
+        function download_repo_json(){
+            fetch('https://server.com/data.json')
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+        }
+        function update(){
+            // document.getElementById("open").textContent ="Welcome to " + newTitle;
+            //window.history.pushState(newTitle, newTitle, newTitle); // You might need to modify this for this to be tracked
+            const pbar = document.getElementById("pbar");
+            pbar.setAttribute("value", Number(document.getElementById("pbar").getAttribute("value"))+5);
+            if (pbar.getAttribute("value") == pbar.getAttribute("max")){
+                document.title = "Download Complete Complete";
+                document.getElementById("open").textContent = "Download Complete";
+                clearInterval(update);
+            }
+        }
+
+        // Call the function to change the URL every 10 seconds
+        setInterval(update, 250); // 10 seconds (10000 milliseconds)
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-278827H8WK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-278827H8WK');
+    </script>
+</body>
+</html>
